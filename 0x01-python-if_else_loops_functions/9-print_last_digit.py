@@ -3,7 +3,8 @@
 
 def print_last_digit(number):
     if number < 0:
-        number *= -1
-    number = number % 10
-    print("{:d}".format(number), end='')
-    return(number)
+        digit = (number * -1) % 10
+    else:
+        digit = number % 10
+    print("{}".format(digit), end='')
+    return(digit)
