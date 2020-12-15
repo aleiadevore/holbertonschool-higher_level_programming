@@ -4,7 +4,7 @@
 def element_at(my_list, idx):
     size = len(my_list)
 
-    if idx > size:
+    if idx > size - 1:
         return (None)
 
     x = my_list[idx]
