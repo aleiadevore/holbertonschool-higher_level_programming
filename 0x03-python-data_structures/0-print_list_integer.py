@@ -2,8 +2,6 @@
 
 
 def print_list_integer(my_list=[]):
-    if __name__ == "__main__":
-        from main import my_list
     output = ["{}".format(elem) for elem in my_list]
     size = len(output)
     for i in range(0, size):
