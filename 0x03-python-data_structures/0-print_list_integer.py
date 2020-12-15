@@ -2,7 +2,6 @@
 
 
 def print_list_integer(my_list=[]):
-    output = ["{}".format(elem) for elem in my_list]
-    size = len(output)
+    size = len(my_list)
     for i in range(0, size):
-        print("{}".format(output[i]))
+        print("{}".format(my_list[i]))
