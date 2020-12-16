@@ -17,9 +17,9 @@ int is_palindrome(listint_t **head)
 	for (i = 0; itr != NULL; i++, itr = itr->next)
 		;
 	name = malloc(sizeof(int) * i);
+	itr = *head;
 	for (i = 0; itr != NULL; i++)
 	{
-		printf("name[i]: %d\n", name[i]);
 		if (itr->n)
 			name[i] = itr->n;
 		itr = itr->next;
