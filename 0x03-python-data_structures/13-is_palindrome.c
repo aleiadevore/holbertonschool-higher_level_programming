@@ -8,29 +8,31 @@
 
 int is_palindrome(listint_t **head)
 {
-	int name[1024], val, i, j;
+	int *name, i, j;
 	listint_t *itr;
 
 	if (*head == NULL)
 		return (1);
 	itr = *head;
-	for (i = 0; i < 1024; i++)
-		name[i] = 0;
+	for (i = 0; itr != NULL; i++, itr = itr->next)
+		;
+	name = malloc(sizeof(int) * i);
 	for (i = 0; itr != NULL; i++)
 	{
+		printf("name[i]: %d\n", name[i]);
 		if (itr->n)
-		{
-			val = itr->n;
-			name[i] = val;
-		}
+			name[i] = itr->n;
 		itr = itr->next;
 	}
 	i--;
 	for (j = 0; i > 0; j++, i--)
 	{
 		if (name[i] != name[j])
+		{
+			free(name);
 			return (0);
+		}
 	}
-
+	free(name);
 	return (1);
 }
