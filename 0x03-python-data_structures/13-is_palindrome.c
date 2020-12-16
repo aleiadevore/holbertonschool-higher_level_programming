@@ -8,14 +8,12 @@
 
 int is_palindrome(listint_t **head)
 {
-	int name[1024], val, i, j;
+	int name[100], val, i, j;
 	listint_t *itr;
 
 	if (*head == NULL)
 		return (1);
 	itr = *head;
-	for (i = 0; i < 1024; i++)
-		name[i] = 0;
 	for (i = 0; itr != NULL; i++)
 	{
 		if (itr->n)
