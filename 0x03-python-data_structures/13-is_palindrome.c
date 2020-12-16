@@ -8,8 +8,29 @@
 
 int is_palindrome(listint_t **head)
 {
+	int name[1024], val, i, j;
+	listint_t *itr;
+
 	if (*head == NULL)
 		return (1);
-	else
-		return (0);
+	itr = *head;
+	for (i = 0; i < 1024; i++)
+		name[i] = 0;
+	for (i = 0; itr != NULL; i++)
+	{
+		if (itr->n)
+		{
+			val = itr->n;
+			name[i] = val;
+		}
+		itr = itr->next;
+	}
+	i--;
+	for (j = 0; i > 0; j++, i--)
+	{
+		if (name[i] != name[j])
+			return (0);
+	}
+
+	return (1);
 }
