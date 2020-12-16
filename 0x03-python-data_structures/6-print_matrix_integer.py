@@ -2,4 +2,12 @@
 
 
 def print_matrix_integer(matrix=[[]]):
-    print('\n'.join([' '.join([str(cell) for cell in row]) for row in matrix]))
+    if len(matrix) == 1:
+        print("")
+    else:
+        for i in range(0, len(matrix)):
+            for j in range(0, len(matrix[i])):
+                if j < len(matrix[i]) - 1:
+                    print("{}".format(matrix[i][j]), end=' ')
+                else:
+                    print("{}".format(matrix[i][j]))
