@@ -4,5 +4,11 @@
 def best_score(a_dictionary):
     if a_dictionary is None:
         return None
-    a = sorted(a_dictionary, key=a_dictionary.get)
+    new = a_dictionary.copy()
+    for x, y in a_dictionary.items():
+        if isinstance(y, int) is False:
+            del new[x]
+    if new is None:
+        return None
+    a = sorted(new, key=new.get)
     return a[-1]
