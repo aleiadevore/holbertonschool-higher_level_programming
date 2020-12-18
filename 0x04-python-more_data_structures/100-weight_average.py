@@ -9,4 +9,7 @@ def weight_average(my_list=[]):
     for i in my_list:
         numer += (i[0] * i[1])
         divisor += i[1]
-    return numer / divisor
+    if divisor is not 0:
+        return numer / divisor
+    else:
+        return numer
