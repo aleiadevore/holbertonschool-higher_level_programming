@@ -10,38 +10,40 @@ def roman_to_int(roman_string):
                 sum += 1
             else:
                 sum -= 1
-        if i == 'V':
+        elif i == 'V':
             if prev is None or prev is 'I' or prev is 'V':
                 sum += 5
             else:
                 sum -= 5
-        if i == 'X':
+        elif i == 'X':
             if prev is None or prev is 'I' or prev is 'V' or prev is 'X':
                 sum += 10
             else:
                 sum -= 10
-        if i == 'L':
+        elif i == 'L':
             if (prev is None or prev is 'I' or prev is 'V' or prev is 'X' or
                prev is 'L'):
                 sum += 50
             else:
                 sum -= 50
-        if i == 'C':
+        elif i == 'C':
             if (prev is None or prev is 'I' or prev is 'V' or prev is 'X' or
-                prev is 'L' or prev is 'C'):
+               prev is 'L' or prev is 'C'):
                 sum += 100
             else:
                 sum -= 100
-        if i == 'D':
+        elif i == 'D':
             if prev is None or sum < 1000:
                 sum += 500
             else:
                 sum -= 500
-        if i == 'M':
+        elif i == 'M':
             if (prev is None or prev is 'I' or prev is 'V' or prev is 'X' or
-                prev is 'L' or prev is 'C' or prev is 'M'):
+               prev is 'L' or prev is 'C' or prev is 'M'):
                 sum += 1000
             else:
                 sum -= 1000
+        else:
+            return 0
         prev = i
     return sum
