@@ -4,6 +4,8 @@
 def roman_to_int(roman_string):
     sum = 0
     prev = None
+    if roman_string is None or type(roman_string) is int:
+        return 0
     for i in reversed(roman_string):
         if i == 'I':
             if prev is None or prev is 'I':
