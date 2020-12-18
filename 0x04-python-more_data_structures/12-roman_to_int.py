@@ -27,7 +27,8 @@ def roman_to_int(roman_string):
             else:
                 sum -= 50
         if i == 'C':
-            if prev is None or sum < 500:
+            if (prev is None or prev is 'I' or prev is 'V' or prev is 'X' or
+                prev is 'L' or prev is 'C'):
                 sum += 100
             else:
                 sum -= 100
@@ -37,7 +38,8 @@ def roman_to_int(roman_string):
             else:
                 sum -= 500
         if i == 'M':
-            if prev is None or sum < 1000:
+            if (prev is None or prev is 'I' or prev is 'V' or prev is 'X' or
+                prev is 'L' or prev is 'C' or prev is 'M'):
                 sum += 1000
             else:
                 sum -= 1000
