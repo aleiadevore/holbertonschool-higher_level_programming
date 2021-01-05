@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+"""Creates a class to create a square"""
 
 
 class Square:
+    """This class creates a square and tests for failures"""
     def __init__(self, size=0):
         try:
             type(size) is int
