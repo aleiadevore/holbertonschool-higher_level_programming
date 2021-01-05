@@ -2,5 +2,5 @@
 
 
 class Square:
-    def square(self):
+    def square():
         pass
