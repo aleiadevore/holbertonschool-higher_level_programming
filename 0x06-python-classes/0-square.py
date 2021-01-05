@@ -1,6 +1,10 @@
 #!/usr/bin/python3
+"""This module creates an empty class
+to practice OOP
+"""
 
 
 class Square:
-    def square():
-        pass
+    """An empty class
+    """
+    pass
