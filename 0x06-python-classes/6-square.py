@@ -6,7 +6,6 @@ class Square:
     """This class creates a square, tests for failures, and then prints out
     the square"""
     def __init__(self, size=0, position=(0, 0)):
-        print("Position is {}".format(position))
         if type(size) is not int:
             raise TypeError("size must be an integer")
         if size < 0:
