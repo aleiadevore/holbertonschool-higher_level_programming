@@ -53,12 +53,12 @@ class Square:
 
     # Public, prints square
     def my_print(self):
+        set = self.__position[:]
+        x = set[0]
+        y = set[1]
+        print("{}".format('\n' * y), end='')
         if self.__size == 0:
             print()
         else:
-            set = self.__position[:]
-            x = set[0]
-            y = set[1]
-            print("{}".format('\n' * y), end='')
             for i in range(0, self.__size):
                 print("{}{}".format(' ' * x, '#' * self.__size))
