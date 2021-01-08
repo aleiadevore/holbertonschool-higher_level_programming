@@ -1,0 +1,46 @@
+=============================
+doctest for 4-print_square.py
+=============================
+``print_square`` prints a square of size 'size'
+
+SUCCESSFUL TEST CONDITIONS
+==========================
+
+Testing square of positive size
+::
+>>> print_square = __import__('4-print_square').print_square
+>>> print_square(4)
+####
+####
+####
+####
+
+Testing square of negative size
+::
+>>> print_square(-4)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/vagrant/holbertonschool-higher_level_programming/0x07-python-test_driven_development/4-print_square.py", line 10, in print_square
+    raise ValueError("size must be >= 0")
+ValueError: size must be >= 0
+
+Testing square with size type float
+::
+>>> print_square(4.2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/vagrant/holbertonschool-higher_level_programming/0x07-python-test_driven_development/4-print_square.py", line 8, in print_square
+    raise TypeError("size must be an integer")
+TypeError: size must be an integer
+
+Testing square with size type str
+::>>> print_square("4")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/vagrant/holbertonschool-higher_level_programming/0x07-python-test_driven_development/4-print_square.py", line 8, in print_square
+    raise TypeError("size must be an integer")
+TypeError: size must be an integer
+
+Testing size 0
+::
+>>> print_square(0)
