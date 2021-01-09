@@ -1,0 +1,62 @@
+==================================
+doctest for 5-text_indentation.py
+==================================
+``text_indentation()`` adds lines after '.', '?', and ':'
+
+SUCCESSFUL TEST CONDITIONS
+==========================
+
+Trying string with no characters to translate
+::
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation("This is a string with no special characters -- it should not have any new lines")
+This is a string with no special characters -- it should not have any new lines
+
+Trying input that is not a string
+::
+>>> text_indentation(1234)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/vagrant/holbertonschool-higher_level_programming/0x07-python-test_driven_development/5-text_indentation.py", line 8, in text_indentation
+    raise TypeError("text must be a string")
+TypeError: text must be a string
+
+Trying string with special characters at the beginning
+::
+>>> text_indentation("?Do you know what this should do?")
+?
+<BLANKLINE>
+Do you know what this should do?
+<BLANKLINE>
+
+Trying string with special characters at the end
+::
+>>> text_indentation("This string has a special character at the end:")
+This string has a special character at the end:
+<BLANKLINE>
+
+Trying string with special characters in a row
+::
+>>> text_indentation("All of the .?: characters")
+All of the .
+<BLANKLINE>
+?
+<BLANKLINE>
+:
+<BLANKLINE>
+characters
+
+Trying string with no space after special character
+::
+>>> text_indentation("Typo with no space.After punctuation")
+Typo with no space.
+<BLANKLINE>
+After punctuation
+
+String with multiple spaces after special character
+::
+>>> text_indentation("This string has?     so many spaces.     ")
+This string has?
+<BLANKLINE>
+so many spaces.
+<BLANKLINE>
