@@ -58,6 +58,8 @@ class Rectangle:
 
     def __str__(self):
         newstr = ""
+        if self.__width == 0 or self.__height == 0:
+            return newstr
         for line in range(0, self.__height):
             newstr += '#' * self.__width
             if line != self.__height - 1:
