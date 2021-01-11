@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """ This module creates a class that defines and initializes rectangle and
-returns the area and perimeter, and prints the rectangle """
+returns the area and perimeter """
 
 
 class Rectangle:
     """ This class defines and initializes a rectangle and returns
-    the area and perimeter, and prints the rectangle """
+    the area and perimeter """
     def __init__(self, width=0, height=0):
         if type(width) is not int:
             raise TypeError("width must be an integer")
@@ -55,16 +55,3 @@ class Rectangle:
         if self.__height == 0 or self.__width == 0:
             return 0
         return self.__height * 2 + self.__width * 2
-
-    def __str__(self):
-        newstr = ""
-        if self.__width == 0 or self.__height == 0:
-            return newstr
-        for line in range(0, self.__height):
-            newstr += '#' * self.__width
-            if line != self.__height - 1:
-                newstr += '\n'
-        return newstr
-
-    def __repr__(self):
-        return 'Rectangle(%d, %d)' % (self.__width, self.__height)
