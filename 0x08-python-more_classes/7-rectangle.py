@@ -20,7 +20,6 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         self.__width = width
         self.__height = height
-        self.print_symbol = Rectangle.print_symbol
         Rectangle.number_of_instances += 1
 
     @property
