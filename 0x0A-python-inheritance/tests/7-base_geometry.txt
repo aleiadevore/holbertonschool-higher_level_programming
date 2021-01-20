@@ -14,6 +14,10 @@ Testing positive int
 ::
 >>> bg = BaseGeometry()
 >>> bg.integer_validator("name", 3)
+>>> try:
+...     bg.integer_validator("name", 3)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
 
 Testing float
 ::
