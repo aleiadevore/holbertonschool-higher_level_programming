@@ -57,3 +57,12 @@ Traceback (most recent call last):
   File "/home/vagrant/holbertonschool-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 13, in integer_validator
     raise TypeError("{} must be an integer".format(name))
 TypeError: name must be an integer
+
+Testing area
+::
+>>> bg = BaseGeometry()
+>>> try:
+...     print(bg.area())
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[Exception] area() is not implemented
