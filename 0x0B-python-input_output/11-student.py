@@ -26,5 +26,5 @@ class Student:
         return d
 
     def reload_from_json(self, json):
-        for item in json:
-            self.item = json[item]
+        if json is not None:
+            self.__dict__ = json
