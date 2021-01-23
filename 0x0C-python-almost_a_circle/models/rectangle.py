@@ -91,3 +91,10 @@ class Rectangle(Base):
     def __str__(self):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y, self.__width, self.__height)
+
+    def update(self, *args):
+        newarray = [self.id, self.__width, self.__height, self.__x, self.__y]
+        for i in range(len(args)):
+            newarray[i] = args[i]
+        self.__init__(newarray[1], newarray[2], newarray[3], newarray[4],
+                      newarray[0])
