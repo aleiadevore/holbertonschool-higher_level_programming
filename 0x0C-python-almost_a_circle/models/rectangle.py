@@ -92,9 +92,22 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y, self.__width, self.__height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         newarray = [self.id, self.__width, self.__height, self.__x, self.__y]
-        for i in range(len(args)):
-            newarray[i] = args[i]
+        if len(args) >= 1:
+            for i in range(len(args)):
+                newarray[i] = args[i]
+        else:
+            for i in kwargs:
+                if i == 'id':
+                    newarray[0] = kwargs[i]
+                if i == 'width':
+                    newarray[1] = kwargs[i]
+                if i == 'height':
+                    newarray[2] = kwargs[i]
+                if i == 'x':
+                    newarray[3] = kwargs[i]
+                if i == 'y':
+                    newarray[4] = kwargs[i]
         self.__init__(newarray[1], newarray[2], newarray[3], newarray[4],
                       newarray[0])
