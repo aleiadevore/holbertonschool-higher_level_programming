@@ -81,3 +81,7 @@ class Rectangle(Base):
 
     def area(self):
         return self.__width * self.__height
+
+    def display(self):
+        for rows in range(0, self.__height):
+            print("{}".format('#' * self.__width))
