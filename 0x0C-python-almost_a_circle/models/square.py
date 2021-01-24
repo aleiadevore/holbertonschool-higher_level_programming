@@ -38,3 +38,7 @@ class Square(Rectangle):
                     newarray[3] = kwargs[i]
         super().__init__(newarray[1], newarray[1], newarray[2],
                          newarray[3], newarray[0])
+
+    def to_dictionary(self):
+        return {'id': self.id, 'size': self.width,
+                'x': self.x, 'y': self.y}
