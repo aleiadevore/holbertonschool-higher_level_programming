@@ -111,3 +111,7 @@ class Rectangle(Base):
                     newarray[4] = kwargs[i]
         self.__init__(newarray[1], newarray[2], newarray[3], newarray[4],
                       newarray[0])
+
+    def to_dictionary(self):
+        return {'id': self.id, 'width': self.__width, 'height': self.__height,
+                'x': self.__x, 'y': self.__y}
