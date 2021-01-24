@@ -20,3 +20,21 @@ class Square(Rectangle):
     @size.setter
     def size(self, value):
         super().__init__(value, value)
+
+    def update(self, *args, **kwargs):
+        newarray = [self.id, self.width, self.x, self.y]
+        if len(args) >= 1:
+            for i in range(len(args)):
+                newarray[i] = args[i]
+        else:
+            for i in kwargs:
+                if i == 'id':
+                    newarray[0] = kwargs[i]
+                if i == 'size':
+                    newarray[1] = kwargs[i]
+                if i == 'x':
+                    newarray[2] = kwargs[i]
+                if i == 'y':
+                    newarray[3] = kwargs[i]
+        super().__init__(newarray[1], newarray[1], newarray[2],
+                         newarray[3], newarray[0])
