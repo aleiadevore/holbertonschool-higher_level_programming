@@ -29,6 +29,7 @@ class Base:
                 lst.append(i.to_dictionary())
             f.write(cls.to_json_string(lst))
 
+    # returns list from JSON string
     @staticmethod
     def from_json_string(json_string):
         lst = []
@@ -36,12 +37,14 @@ class Base:
             return lst
         return json.loads(json_string)
 
+    # returns new object from dictionary
     @classmethod
     def create(cls, **dictionary):
         new = cls(1, 1, 0, 0)
         new.update(**dictionary)
         return new
 
+    # loads from JSON file, creates, and returns list of objects
     @classmethod
     def load_from_file(cls):
         jstr = ""
@@ -51,5 +54,5 @@ class Base:
         jlst = cls.from_json_string(jstr)
         olst = []
         for i in jlst:
-            olst.append(cls.create())
+            olst.append(cls.create(**i))
         return olst
