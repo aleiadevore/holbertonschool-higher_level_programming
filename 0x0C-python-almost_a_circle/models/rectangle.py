@@ -1,14 +1,16 @@
 #!/usr/bin/python3
-"""This module creates a rectangle class"""
+""" This module creates a rectangle class based on the base class """
 
 
 from models.base import Base
 
 
 class Rectangle(Base):
-    """This class creates a rectangle"""
+    """ This class creates a rectangle """
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        """ This initializes the class """
+
         if id is not None and type(id) is not int:
             raise TypeError("id must be an integer")
         super().__init__(id)
@@ -35,10 +37,14 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """ This is the getter for the width """
+
         return self.__width
 
     @width.setter
     def width(self, value):
+        """ This is the setter for the width """
+
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -47,10 +53,14 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """ This is the getter for the height """
+
         return self.__height
 
     @height.setter
     def height(self, value):
+        """ This is the setter for the height """
+
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -59,10 +69,14 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """ This is the getter for x """
+
         return self.__x
 
     @x.setter
     def x(self, value):
+        """ This is the setter for x """
+
         if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
@@ -71,10 +85,14 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """ This is the getter for y """
+
         return self.__y
 
     @y.setter
     def y(self, value):
+        """ This is the setter for y """
+
         if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:
@@ -82,19 +100,27 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
+        """ This returns the area """
+
         return self.__width * self.__height
 
     def display(self):
+        """ This prints the rectangle """
+
         for lines in range(self.__y):
             print()
         for rows in range(0, self.__height):
             print("{}{}".format(' ' * self.__x, '#' * self.__width))
 
     def __str__(self):
+        """ This sets the string format """
+
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y, self.__width, self.__height)
 
     def update(self, *args, **kwargs):
+        """ This updates values for the rectangle """
+
         newarray = [self.id, self.__width, self.__height, self.__x, self.__y]
         if len(args) >= 1:
             for i in range(len(args)):
@@ -115,5 +141,7 @@ class Rectangle(Base):
                       newarray[4], newarray[0])
 
     def to_dictionary(self):
+        """ This returns the rectangle as a dictionary """
+
         return {'id': self.id, 'width': self.__width, 'height': self.__height,
                 'x': self.__x, 'y': self.__y}
