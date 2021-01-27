@@ -53,14 +53,18 @@ class Base:
     @classmethod
     def load_from_file(cls):
         jstr = ""
-        with open(cls.__name__ + ".json", 'r') as f:
+        try:
+            f = open(cls.__name__ + ".json", 'r')
             for line in f:
                 jstr += line
-        jlst = cls.from_json_string(jstr)
-        olst = []
-        for i in jlst:
-            olst.append(cls.create(**i))
-        return olst
+            jlst = cls.from_json_string(jstr)
+            olst = []
+            for i in jlst:
+                olst.append(cls.create(**i))
+            f.close()
+            return olst
+        except:
+            return []
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
@@ -87,15 +91,11 @@ class Base:
     def load_from_file_csv(cls):
         clist = []
         olist = []
-        try:
-            f = open(cls.__name__ + ".csv", 'r')
+        with open(cls.__name__ + ".csv", 'r') as f:
             for line in csv.DictReader(f):
                 clist.append(line)
             for i in clist:
                 for j in i:
                     i[j] = int(i[j])
-                    olist.append(cls.create(**i))
-            f.close()
-            return olist
-        except:
-            return []
+                olist.append(cls.create(**i))
+        return olist
