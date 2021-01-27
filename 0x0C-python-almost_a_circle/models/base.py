@@ -87,11 +87,15 @@ class Base:
     def load_from_file_csv(cls):
         clist = []
         olist = []
-        with open(cls.__name__ + ".csv", 'r') as f:
+        try:
+            f = open(cls.__name__ + ".csv", 'r')
             for line in csv.DictReader(f):
                 clist.append(line)
             for i in clist:
                 for j in i:
                     i[j] = int(i[j])
-                olist.append(cls.create(**i))
-        return olist
+                    olist.append(cls.create(**i))
+            f.close()
+            return olist
+        except:
+            return []
