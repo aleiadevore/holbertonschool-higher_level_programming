@@ -42,7 +42,10 @@ class Base:
     # returns new object from dictionary
     @classmethod
     def create(cls, **dictionary):
-        new = cls(1, 1, 0, 0)
+        if cls.__name__ == "Rectangle":
+            new = cls(1, 1, 0, 0)
+        else:
+            new = cls(1, 0, 0)
         new.update(**dictionary)
         return new
 
