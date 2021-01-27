@@ -46,5 +46,15 @@ class TestBase(unittest.TestCase):
     def test_area_2(self):
         self.assertEqual(self.r3.area(), 9, "Should be 9")
 
+    def test_none(self):
+        with self.assertRaises(TypeError):
+            r4 = Rectangle(None)
+
+    def test_dict(self):
+        r5 = Rectangle(10, 2, 1, 9, 10)
+        r5_dictionary = r5.to_dictionary()
+        self.assertEqual(r5_dictionary, {'x': 1, 'y': 9, 'id': 10,
+                                         'height': 2, 'width': 10})
+
 if __name__ == '__main__':
     unittest.main()
