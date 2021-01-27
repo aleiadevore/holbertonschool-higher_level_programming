@@ -1,27 +1,37 @@
 #!/usr/bin/python3
-"""This module creates a Square class that inherits from Rectangle"""
+""" This module creates a Square class that inherits from Rectangle """
+
+
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """This class inherits from Rectangle, which inherits from Base"""
+    """ This class inherits from Rectangle, which inherits from Base """
 
     def __init__(self, size, x=0, y=0, id=None):
+        """ This initializes the square """
+
         super().__init__(size, size, x, y)
 
     def __str__(self):
+        """ This returns the string representation """
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x,
                                                  self.y, self.width)
 
     @property
     def size(self):
+        """ This is the getter for size """
+
         return self.width
 
     @size.setter
     def size(self, value):
+        """ This is the setter for size """
+
         super().__init__(value, value)
 
     def update(self, *args, **kwargs):
+        """ This updates the value of a square """
         newarray = [self.id, self.width, self.x, self.y]
         if len(args) >= 1:
             for i in range(len(args)):
@@ -40,5 +50,7 @@ class Square(Rectangle):
                          newarray[3], newarray[0])
 
     def to_dictionary(self):
+        """ This returns a dictionary representation """
+
         return {'id': self.id, 'size': self.width,
                 'x': self.x, 'y': self.y}
