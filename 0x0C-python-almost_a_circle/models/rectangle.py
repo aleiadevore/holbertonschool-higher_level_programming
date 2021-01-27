@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """This module creates a rectangle class"""
+
+
 from models.base import Base
 
 
@@ -109,8 +111,8 @@ class Rectangle(Base):
                     newarray[3] = kwargs[i]
                 if i == 'y':
                     newarray[4] = kwargs[i]
-        self.__init__(newarray[1], newarray[2], newarray[3], newarray[4],
-                      newarray[0])
+        self.__init__(newarray[1], newarray[2], newarray[3],
+                      newarray[4], newarray[0])
 
     def to_dictionary(self):
         return {'id': self.id, 'width': self.__width, 'height': self.__height,
