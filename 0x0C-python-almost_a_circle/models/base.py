@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This module creates a base class"""
 import json
+import csv
 
 
 class Base:
@@ -56,3 +57,37 @@ class Base:
         for i in jlst:
             olst.append(cls.create(**i))
         return olst
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        with open(cls.__name__ + ".csv", 'w') as f:
+            lst = []
+            if cls.__name__ == "Rectangle":
+                csv_columns = ['id', 'width', 'height', 'x', 'y']
+                for i in list_objs:
+                    lst.append(i.to_dictionary())
+                writer = csv.DictWriter(f, fieldnames=csv_columns)
+                writer.writeheader()
+                for data in lst:
+                    writer.writerow(data)
+            if cls.__name__ == "Square":
+                csv_columns = ['id', 'size', 'x', 'y']
+                for i in list_objs:
+                    lst.append(i.to_dictionary())
+                writer = csv.DictWriter(f, fieldnames=csv_columns)
+                writer.writeheader()
+                for data in lst:
+                    writer.writerow(data)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        clist = []
+        olist = []
+        with open(cls.__name__ + ".csv", 'r') as f:
+            for line in csv.DictReader(f):
+                clist.append(line)
+            for i in clist:
+                for j in i:
+                    i[j] = int(i[j])
+                olist.append(cls.create(**i))
+        return olist
