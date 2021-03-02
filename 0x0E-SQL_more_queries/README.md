@@ -1,0 +1,1 @@
+This directory contains more practice files for learning SQL.
