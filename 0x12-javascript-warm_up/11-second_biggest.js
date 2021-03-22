@@ -8,11 +8,9 @@ if (process.argv.length <= 3) {
 } else {
   large = process.argv[2];
   for (; process.argv[i] != null; i++) {
-    if (isNaN(process.argv[i])) {
-      continue;
-    } else if (large >= ans) {
+    if (large >= ans) {
       ans = large;
-      large = parseInt(process.argv[i]);
+      large = process.argv[i];
     }
-  } console.log(ans);
+  } console.log(parseInt(ans));
 }
