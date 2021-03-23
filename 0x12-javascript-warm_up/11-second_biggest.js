@@ -1,16 +1,12 @@
 #!/usr/bin/node
-let large = 0;
-let ans = 0;
-let i = 2;
+let inpt;
 
 if (process.argv.length <= 3) {
   console.log(0);
 } else {
-  large = process.argv[2];
-  for (; process.argv[i] != null; i++) {
-    if (large >= ans) {
-      ans = large;
-      large = process.argv[i];
-    }
-  } console.log(parseInt(ans));
+  inpt = process.argv;
+  inpt[0] = null;
+  inpt[1] = null;
+  inpt.sort(function (a, b) { return a - b; });
+  console.log(inpt[inpt.length - 2]);
 }
