@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" This module selects all states beginning with 'N' """
+""" This module selects all states with user input """
 
 import MySQLdb
 import sys
