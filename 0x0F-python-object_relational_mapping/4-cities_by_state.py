@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" This module selects all states beginning with 'N' """
+""" This module prints all cities and states """
 
 import MySQLdb
 import sys
