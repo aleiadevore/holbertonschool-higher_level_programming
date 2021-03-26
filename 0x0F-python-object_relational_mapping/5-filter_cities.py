@@ -14,10 +14,13 @@ for i in range(len(inpt)):
                 break
         else:
                 newinpt += inpt[i]
-cmd = "SELECT * FROM states RIGHT JOIN cities ON states.id = cities.state_id WHERE states.name LIKE '{}'".format(newinpt)
+cmd = "SELECT cities.name FROM states RIGHT JOIN cities ON states.id = \
+cities.state_id WHERE states.name LIKE '{}'".format(newinpt)
 c.execute(cmd)
 q_rows = c.fetchall()
-for row in q_rows:
-        print(row)
+printthis = []
+for i in q_rows:
+        printthis.append(str(i[0]))
+print(", ".join(printthis))
 c.close()
 db.close()
