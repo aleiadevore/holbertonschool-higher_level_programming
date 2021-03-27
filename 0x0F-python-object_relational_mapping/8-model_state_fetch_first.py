@@ -16,4 +16,7 @@ if __name__ == "__main__":
     session = Session()
 
     match = session.query(State).order_by(State.id).first()
-    print("{}: {}".format(match.id, match.name))
+    if (match):
+        print("{}: {}".format(match.id, match.name))
+    else:
+        print("Nothing")
