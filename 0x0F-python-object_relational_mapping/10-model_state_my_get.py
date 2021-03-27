@@ -24,8 +24,10 @@ for i in range(len(inpt)):
 """ Filtering and printing """
 Session = sessionmaker(bind=engine)
 session = Session()
-for item in session.query(State).filter(State.name.like
-                                        (inpt)).order_by(State.id):
-    print(item.id)
-"""else:
-    print("Not found")"""
+
+match = session.query(State).filter(State.name.like
+                                    (inpt)).first()
+if (match is not None):
+    print(match.id)
+else:
+    print("Not found")
