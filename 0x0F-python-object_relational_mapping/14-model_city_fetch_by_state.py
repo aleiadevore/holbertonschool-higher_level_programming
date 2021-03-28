@@ -16,6 +16,6 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     places = session.query(State, City).filter(
-        State.id, State.id == City.state_id).order_by(State.id)
+        State.id, State.id == City.state_id).order_by(City.id)
     for state, city in places:
         print("{}: ({}) {}".format(state.name, city.id, city.name))
