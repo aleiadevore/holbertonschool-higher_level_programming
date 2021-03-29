@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" adds the State object California with city "San Francisco" to the database hbtn_0e_6_usa """
+""" adds the State object California with city
+"San Francisco" to the database hbtn_0e_6_usa """
 
 import sys
 from relationship_state import Base, State
@@ -20,4 +21,3 @@ if __name__ == "__main__":
     ed_state.cities = [City(name="San Francisco")]
     session.add(ed_state)
     session.commit()
-    
