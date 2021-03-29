@@ -13,6 +13,7 @@ if __name__ == "__main__":
         c.execute(cmd)
         q_rows = c.fetchall()
         for row in q_rows:
-                print(row)
+                if row[0] == 'N':
+                        print(row)
         c.close()
         db.close()
