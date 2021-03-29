@@ -9,7 +9,7 @@ if __name__ == "__main__":
                              db=sys.argv[3], host="localhost", port=3306)
         c = db.cursor()
         cmd = "SELECT * FROM states WHERE name LIKE '{}' \
-                ORDER BY id COLLATE Latin1_General_CS ASC".format(sys.argv[4])
+               COLLATE Latin1_General_CS ORDER BY id ASC".format(sys.argv[4])
         c.execute(cmd)
         q_rows = c.fetchall()
         for row in q_rows:
