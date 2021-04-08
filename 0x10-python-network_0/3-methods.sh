@@ -1,3 +1,3 @@
 #!/bin/bash
-# This won't work
-curl -siX OPTIONS "$1" | grep "Allow:" | awk '{ print substr($0, index($0,$2)) }'
+# Displays all methods
+curl -siX OPTIONS "$1" | grep "Allow:" | cut -d " " -f2-
