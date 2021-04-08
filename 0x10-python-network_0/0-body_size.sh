@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 # gets body size
-
-curl -s "$1" | wc -c
+curl -sI "$1" | grep -i Content-Length | awk '{print $2}'
