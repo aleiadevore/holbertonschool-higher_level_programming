@@ -1,0 +1,1 @@
+This directory contains practice files for learning to connect to urls using urllib.
