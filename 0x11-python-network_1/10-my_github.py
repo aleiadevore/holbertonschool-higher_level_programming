@@ -9,7 +9,7 @@ usr = argv[1]
 pswd = argv[2]
 
 if __name__ == "__main__":
-        for key, value in requests.get("http://github.com/aleiadevore",
-                                       auth=(usr, pswd)).headers.items():
-                if key == 'x-github-request-id':
-                        print(value)
+        for k, v in requests.get("http://api.github.com/{}".format(usr),
+                                 auth=(usr, pswd)).headers.items():
+                if k == 'x-github-request-id':
+                        print(v)
