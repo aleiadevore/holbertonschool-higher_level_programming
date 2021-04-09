@@ -20,6 +20,8 @@ if __name__ == "__main__":
         try:
                 if len(response.json()) < 1:
                         print("No result")
+                elif (type(response.json()) is not dict):
+                        print("Not a valid JSON")
                 else:
                         id = response.json()['id']
                         name = response.json()['name']
