@@ -6,11 +6,12 @@ from sys import argv
 from urllib import request
 import urllib
 
-data = urllib.parse.urlencode({"email": argv[2]})
+if __name__ == "__main__":
+        data = urllib.parse.urlencode({"email": argv[2]})
 
-data = data.encode('ascii')
+        data = data.encode('ascii')
 
-url = argv[1]
-with request.urlopen(url, data) as text:
-        html = text.read()
-        print(html.decode('utf-8'))
+        url = argv[1]
+        with request.urlopen(url, data) as text:
+                html = text.read()
+                print(html.decode('utf-8'))
