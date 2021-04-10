@@ -4,12 +4,15 @@ and uses the GitHub API to display your id """
 
 from sys import argv
 import requests
+from requests.auth import HTTPBasicAuth
 
 usr = argv[1]
 pswd = argv[2]
 
 if __name__ == "__main__":
-        for k, v in requests.get("http://api.github.com/{}".format(usr),
-                                 auth=(usr, pswd)).headers.items():
-                if k == 'x-github-request-id':
-                        print(v)
+        r = requests.get("http://api.github.com/user",
+                         auth=HTTPBasicAuth(usr, pswd))
+        try:
+                print(r.json()[id])
+        except:
+                print("None")
