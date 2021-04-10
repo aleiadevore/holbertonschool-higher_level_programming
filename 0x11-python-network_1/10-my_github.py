@@ -11,9 +11,9 @@ if __name__ == "__main__":
         usr = argv[1]
         pswd = argv[2]
 
-        r = requests.get("http://api.github.com/user",
+        r = requests.get("https://api.github.com/user",
                          auth=HTTPBasicAuth(usr, pswd))
         try:
-                print(r.json()[id])
+                print(r.json()['id'])
         except:
                 print("None")
