@@ -18,13 +18,11 @@ if __name__ == "__main__":
         data = {'q': letter}
         response = requests.post(url, data=data)
         try:
-                if len(response.json()) < 1:
-                        print("No result")
-                elif (type(response.json()) is not dict):
-                        print("Not a valid JSON")
-                else:
+                if response.json():
                         id = response.json()['id']
                         name = response.json()['name']
                         print("[{}] {}".format(id, name))
+                else:
+                        print("No result")
         except:
                 print("Not a valid JSON")
